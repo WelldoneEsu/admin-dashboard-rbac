@@ -1,7 +1,7 @@
 const bcrypt = require('bcryptjs');
 const jwt = require('jsonwebtoken');
 const User = require('../models/User');
-const RefreshToken = require('../models/refreshToken');
+const RefreshToken = require('../models/RefreshToken');
 const { signAccessToken, signRefreshToken } = require('../utils/token');
 
 // @desc    Signup new user

@@ -1,5 +1,5 @@
 const User = require('../models/User');
-const ActivityLog = require('../models/activityLog');
+const ActivityLog = require('../models/ActivityLog');
 
 
 // GET /stats/users -> number of users by role

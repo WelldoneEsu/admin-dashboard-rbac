@@ -1,4 +1,4 @@
-const ActivityLog = require('../models/activityLog');
+const ActivityLog = require('../models/ActivityLog');
 
 
 async function logActivity({ user, action, ip, meta }) {
@@ -11,5 +11,3 @@ console.error('Activity log error:', err.message);
 
 
 module.exports = { logActivity };
-app.use(securityMiddleware.helmet());
-app.use(securityMiddleware.rateLimiter);

@@ -1,5 +1,5 @@
 const jwt = require('jsonwebtoken');
-const RefreshToken = require('../models/refreshToken');
+const RefreshToken = require('../models/RefreshToken');
 
 
 const signAccessToken = (payload) => {
