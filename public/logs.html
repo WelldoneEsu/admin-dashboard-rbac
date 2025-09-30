@@ -1,0 +1,108 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <title>Activity Logs</title>
+  <style>
+    body {
+      font-family: Arial, sans-serif;
+    }
+
+    h2 {
+      margin-bottom: 10px;
+    }
+
+    table, th, td {
+      border: 1px solid black;
+      border-collapse: collapse;
+      padding: 6px;
+    }
+
+    table {
+      width: 100%;
+      margin-top: 20px;
+    }
+
+    th {
+      background: #eee;
+    }
+
+    #controls {
+      margin-bottom: 15px;
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+    }
+
+    #logoutBtn, #backBtn {
+      padding: 8px 16px;
+      background-color: #007bff;
+      color: white;
+      border: none;
+      border-radius: 4px;
+      cursor: pointer;
+    }
+
+    #logoutBtn {
+      background-color: #d9534f;
+    }
+
+    #logoutBtn:hover, #backBtn:hover {
+      opacity: 0.9;
+    }
+
+    #filterForm input, #filterForm button {
+      margin-right: 8px;
+      padding: 4px 8px;
+    }
+
+    #exportCsv {
+      margin-top: 10px;
+    }
+  </style>
+</head>
+<body>
+  <h2>Activity Logs</h2>
+
+  <!-- Top Buttons -->
+  <div id="controls">
+    <button id="backBtn">⬅ Back to Dashboard</button>
+    <button id="logoutBtn">🔒 Logout</button>
+  </div>
+
+  <!-- Filters -->
+  <form id="filterForm">
+    <input type="text" name="user" placeholder="User ID">
+    <input type="text" name="action" placeholder="Action">
+    <label>From: <input type="date" name="from"></label>
+    <label>To: <input type="date" name="to"></label>
+    <button type="submit">Filter</button>
+  </form>
+
+  <!-- Logs Table -->
+  <table id="logsTable">
+    <thead>
+      <tr>
+        <th>ID</th>
+        <th>User</th>
+        <th>Action</th>
+        <th>IP</th>
+        <th>Created At</th>
+      </tr>
+    </thead>
+    <tbody></tbody>
+  </table>
+
+  <!-- Pagination -->
+  <div>
+    <button id="prevBtn">Prev</button>
+    <span id="pageNum">1</span>
+    <button id="nextBtn">Next</button>
+  </div>
+
+  <!-- Export -->
+  <button id="exportCsv">⬇️ Export CSV</button>
+
+  <script src="logs.js"></script>
+</body>
+</html>

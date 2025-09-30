@@ -1,22 +1,18 @@
 const express = require("express");
 const { protect } = require("../middleware/authMiddleware");
-const { authorize } = require("../middleware/rbacMiddleware");
+const { permit } = require("../middleware/rbacMiddleware");
+
 const {
-  getUsersStats,
-  getLoginStats,
-  getActiveUsersStats,
+  usersByRole,
+  loginAttempts,
+  activeUsers,
 } = require("../controllers/statsController");
 
 const router = express.Router();
 
 // Admin & Manager can access stats
-router.get("/users", protect, authorize(["admin", "manager"]), getUsersStats);
-router.get("/logins", protect, authorize(["admin", "manager"]), getLoginStats);
-router.get(
-  "/active-users",
-  protect,
-  authorize(["admin", "manager"]),
-  getActiveUsersStats
-);
+router.get("/users", protect, permit("admin", "manager"), usersByRole);
+router.get("/logins", protect, permit("admin", "manager"), loginAttempts);
+router.get("/active-users", protect, permit("admin", "manager"), activeUsers);
 
 module.exports = router;
