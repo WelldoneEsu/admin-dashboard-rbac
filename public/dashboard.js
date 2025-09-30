@@ -8,7 +8,7 @@
 
     document.getElementById("logoutBtn").addEventListener("click", async () => {
       const refreshToken = localStorage.getItem("refreshToken");
-      await fetch("http://localhost:5000/api/auth/logout", {
+      await fetch("https://admin-dashboard-rbac-e79f.onrender.com/api/auth/logout", {
         method: "POST",
         headers: { "Content-Type": "application/json" },
         body: JSON.stringify({ refreshToken }),

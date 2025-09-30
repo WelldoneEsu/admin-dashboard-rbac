@@ -9,6 +9,7 @@ const connectDB = require('./config/db');
 const authRoutes = require('./routes/authRoutes');
 const statsRoutes = require('./routes/statsRoutes');
 const logsRoutes = require('./routes/logsRoutes');
+const path = require('path');
 const errorHandler = require('./middleware/errorHandler');
 
 const app = express();
@@ -28,10 +29,16 @@ app.use('/api/stats', statsRoutes);
 app.use('/api/logs', logsRoutes);
 
 // Health
-app.get('/', (req, res) => res.json({ ok: true }));
+app.get('/health', (req, res) => res.json({ ok: true }));
 
-// Serve public frontend folder
-app.use(express.static('public'));
+// ✅ Serve static files
+app.use(express.static(path.join(__dirname, 'public')));
+
+
+// ✅ 404 route
+app.use((req, res) => {
+    res.status(404).json({ error: 'Route not found' });
+});
 
 // Central error handler
 app.use(errorHandler);

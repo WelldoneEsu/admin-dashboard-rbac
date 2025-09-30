@@ -1,4 +1,4 @@
-const API = 'http://localhost:5000';
+const API = 'https://admin-dashboard-rbac-e79f.onrender.com';
 
 document.getElementById("signupForm").addEventListener("submit", async (e) => {
   e.preventDefault();

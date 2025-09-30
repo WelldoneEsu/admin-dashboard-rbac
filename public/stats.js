@@ -1,4 +1,4 @@
-const API_URL = 'http://localhost:5000/api/stats';
+const API_URL = 'https://admin-dashboard-rbac-e79f.onrender.com/api/stats';
 const token = localStorage.getItem("accessToken");
 const user = JSON.parse(localStorage.getItem("user") || "{}");
 

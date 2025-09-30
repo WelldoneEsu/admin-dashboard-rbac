@@ -1,4 +1,4 @@
-const API_URL = 'http://localhost:5000/api/logs';
+const API_URL = 'https://admin-dashboard-rbac-e79f.onrender.com/api/logs';
 let currentPage = 1;
 const limit = 10;
 
